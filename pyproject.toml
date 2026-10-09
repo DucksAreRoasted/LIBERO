@@ -1,0 +1,22 @@
+[project]
+name = "libero-smolvla-tour"
+version = "0.1.0"
+description = "A short LIBERO + SmolVLA walkthrough: one demo frame, one action, then optional train and sim eval."
+requires-python = ">=3.12"
+dependencies = [
+    "lerobot[smolvla,libero,training]",
+]
+
+[tool.uv]
+package = false
+
+# RTX 5070 is Blackwell (sm_120). LeRobot's Linux install tracks the CUDA 12.8 wheels,
+# which include that architecture from PyTorch 2.7 onward.
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128" }]
+torchvision = [{ index = "pytorch-cu128" }]

@@ -1,0 +1,8 @@
+.venv/
+outputs/
+__pycache__/
+*.py[cod]
+.python-version
+*.egg-info/
+.pytest_cache/
+wandb/
